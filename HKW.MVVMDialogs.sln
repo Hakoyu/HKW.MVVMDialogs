@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HKW.MVVMDialogs", "HKW.MVVMDialogs\HKW.MVVMDialogs.csproj", "{993B6826-94FE-4CB7-A869-FB7BCA1D702F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{993B6826-94FE-4CB7-A869-FB7BCA1D702F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993B6826-94FE-4CB7-A869-FB7BCA1D702F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993B6826-94FE-4CB7-A869-FB7BCA1D702F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993B6826-94FE-4CB7-A869-FB7BCA1D702F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {817867D6-B269-402F-A14D-C1F89608BF6A}
+	EndGlobalSection
+EndGlobal
