@@ -10,10 +10,10 @@ namespace HKW.MVVMDialogs;
 /// <summary>
 /// 对话框窗口视图模型
 /// </summary>
-public partial class DialogWindowVM : ReactiveObjectX, IDialogViewModel, IModalDialogViewModel
+public partial class DialogViewModel : ReactiveObjectX, IDialogViewModel
 {
     /// <inheritdoc/>
-    public DialogWindowVM() { }
+    public DialogViewModel() { }
 
     /// <inheritdoc/>
     [ReactiveProperty]
@@ -21,7 +21,7 @@ public partial class DialogWindowVM : ReactiveObjectX, IDialogViewModel, IModalD
 
     /// <inheritdoc/>
     [ReactiveProperty]
-    public string? ToolTip { get; set; } = null;
+    public string ToolTip { get; set; } = string.Empty;
 
     /// <inheritdoc/>
     [ReactiveProperty]
@@ -46,6 +46,30 @@ public partial class DialogWindowVM : ReactiveObjectX, IDialogViewModel, IModalD
     [ReactiveProperty]
     [DefaultValue(ResizeMode.NoResize)]
     public ResizeMode ResizeMode { get; set; } = ResizeMode.NoResize;
+
+    /// <summary>
+    /// 关闭时
+    /// </summary>
+    public event CancelEventHandler? Closing;
+
+    /// <summary>
+    /// 当关闭时
+    /// </summary>
+    /// <param name="e">可取消事件</param>
+    public void OnClosing(CancelEventArgs e)
+    {
+        Closing?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// 当异步关闭时
+    /// </summary>
+    /// <param name="e">可取消事件</param>
+    /// <returns>任务</returns>
+    public async Task OnClosingAsync(CancelEventArgs e)
+    {
+        await Task.Run(() => Closing?.Invoke(this, e));
+    }
 
     #region Command
 

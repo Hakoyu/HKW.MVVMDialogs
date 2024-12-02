@@ -10,7 +10,7 @@ namespace HKW.MVVMDialogs;
 /// <summary>
 /// 文本输入框视图模型
 /// </summary>
-public partial class TextInputVM : DialogWindowVM
+public partial class TextInputVM : DialogViewModel
 {
     /// <inheritdoc/>
     public TextInputVM() { }

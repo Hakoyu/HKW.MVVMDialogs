@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HanumanInstitute.MvvmDialogs;
 using HanumanInstitute.MvvmDialogs.FrameworkDialogs;
 
 namespace HKW.MVVMDialogs;
@@ -11,7 +12,7 @@ namespace HKW.MVVMDialogs;
 /// <summary>
 /// 对话框窗口接口
 /// </summary>
-public interface IDialogViewModel
+public interface IDialogViewModel : IModalDialogViewModel, IViewClosing
 {
     /// <summary>
     /// 标题
@@ -21,12 +22,7 @@ public interface IDialogViewModel
     /// <summary>
     /// 提示
     /// </summary>
-    public string? ToolTip { get; set; }
-
-    /// <summary>
-    /// 对话框结果
-    /// </summary>
-    public bool? DialogResult { get; }
+    public string ToolTip { get; set; }
 
     /// <summary>
     /// 按钮
@@ -47,4 +43,9 @@ public interface IDialogViewModel
     /// 调整大小模式
     /// </summary>
     public ResizeMode ResizeMode { get; set; }
+
+    /// <summary>
+    /// 关闭时
+    /// </summary>
+    public event CancelEventHandler? Closing;
 }

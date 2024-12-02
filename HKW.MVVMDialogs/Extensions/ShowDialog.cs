@@ -13,37 +13,77 @@ namespace HKW.MVVMDialogs;
 /// </summary>
 public static class HKWMVVMDialogExtensions
 {
+    ///// <summary>
+    ///// 显示对话框
+    ///// </summary>
+    ///// <typeparam name="TViewModel">对话框视图模型类型</typeparam>
+    ///// <param name="dialogService">对话框服务</param>
+    ///// <param name="ownerViewModel">所有者视图模型</param>
+    ///// <returns>对话框视图模型</returns>
+    //public static TViewModel ShowDialogX<TViewModel>(
+    //    this IDialogService dialogService,
+    //    INotifyPropertyChanged ownerViewModel
+    //)
+    //    where TViewModel : DialogViewModel, new()
+    //{
+    //    var vm = new TViewModel();
+    //    dialogService.ShowDialogAsync(ownerViewModel, vm).Wait();
+    //    return vm;
+    //}
+
+    ///// <summary>
+    ///// 显示对话框
+    ///// </summary>
+    ///// <typeparam name="TViewModel">对话框视图模型类型</typeparam>
+    ///// <param name="dialogService">对话框服务</param>
+    ///// <param name="ownerViewModel">所有者视图模型</param>
+    ///// <param name="viewModel">对话框视图模型</param>
+    ///// <returns>对话框视图模型</returns>
+    //public static TViewModel ShowDialogX<TViewModel>(
+    //    this IDialogService dialogService,
+    //    INotifyPropertyChanged ownerViewModel,
+    //    TViewModel viewModel
+    //)
+    //    where TViewModel : DialogViewModel
+    //{
+    //    dialogService.ShowDialogAsync(ownerViewModel, viewModel).Wait();
+    //    return viewModel;
+    //}
+
     /// <summary>
-    /// 显示文本输入对话框
+    /// 异步显示对话框
     /// </summary>
+    /// <typeparam name="TViewModel">对话框视图模型类型</typeparam>
     /// <param name="dialogService">对话框服务</param>
     /// <param name="ownerViewModel">所有者视图模型</param>
-    /// <param name="textInputVM">对话框视图模型</param>
-    /// <returns>结果</returns>
-    public static async Task<TextInputVM> ShowTextInputDialog(
+    /// <returns>对话框视图模型任务</returns>
+    public static async Task<TViewModel> ShowDialogAsyncX<TViewModel>(
         this IDialogService dialogService,
-        INotifyPropertyChanged ownerViewModel,
-        TextInputVM textInputVM
+        INotifyPropertyChanged ownerViewModel
     )
+        where TViewModel : DialogViewModel, new()
     {
-        await dialogService.ShowDialogAsync(ownerViewModel, textInputVM);
-        return textInputVM;
+        var vm = new TViewModel();
+        await dialogService.ShowDialogAsync(ownerViewModel, vm);
+        return vm;
     }
 
     /// <summary>
-    /// 显示项目选择对话框
+    /// 异步显示对话框
     /// </summary>
+    /// <typeparam name="TViewModel">对话框视图模型类型</typeparam>
     /// <param name="dialogService">对话框服务</param>
     /// <param name="ownerViewModel">所有者视图模型</param>
-    /// <param name="itemSelectionVM">对话框视图模型</param>
-    /// <returns>结果</returns>
-    public static async Task<ItemSelectionVM> ShowItemSelectionDialog(
+    /// <param name="viewModel">对话框视图模型</param>
+    /// <returns>对话框视图模型任务</returns>
+    public static async Task<TViewModel> ShowDialogAsyncX<TViewModel>(
         this IDialogService dialogService,
         INotifyPropertyChanged ownerViewModel,
-        ItemSelectionVM itemSelectionVM
+        TViewModel viewModel
     )
+        where TViewModel : DialogViewModel
     {
-        await dialogService.ShowDialogAsync(ownerViewModel, itemSelectionVM);
-        return itemSelectionVM;
+        await dialogService.ShowDialogAsync(ownerViewModel, viewModel);
+        return viewModel;
     }
 }

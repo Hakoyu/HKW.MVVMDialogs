@@ -9,7 +9,7 @@ namespace HKW.MVVMDialogs;
 /// <summary>
 /// 可选中视图模型
 /// </summary>
-public partial class ItemSelectionVM : DialogWindowVM
+public partial class ItemSelectionVM : DialogViewModel
 {
     /// <inheritdoc/>
     /// <param name="collection">集合</param>
